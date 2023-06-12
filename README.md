@@ -27,7 +27,7 @@ To deploy the Secure Private API, follow these steps:
 5. Deploy the infrastructure stack using AWS CDK: `cdk bootstrap, cdk ls, cdk deploy`
 6. After successful deployment, the API endpoint URL will be provided as an output. Use this URL to access the secure private API within the VPC.
 
-# Testing the Solution
+# Testing the API
 
 To ensure the successful deployment and functionality of the Secure Private API, follow these testing steps:
 
