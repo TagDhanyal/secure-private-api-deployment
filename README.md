@@ -40,7 +40,7 @@ To ensure the successful deployment and functionality of the Secure Private API,
    ```bash
    cdk deploy api-consumer
 Send API Requests: After the deployment is complete, use the curl command to send a GET request to the API. For example:
-    curl -X GET https://p35nrnhb3m.execute-api.us-east-1.amazonaws.com/miztiik/secure/greeter
+    curl -X GET https://p35nrnhb3m.execute-api.us-east-1.amazonaws.com/tagdhanyal/secure/hello
     
 Verify Response: The expected output should resemble the following:
     {"message": "Hi Dhanyal World, Hello from Lambda running at X.XXX.XXX.XXX"}
@@ -66,7 +66,6 @@ Verify VPC DNS Resolution: To confirm the successful resolution of SecureApiUrl 
 To clean up the resources created by the Secure Private API Deployment, use the following command:
 
     cdk destroy
-
 
 ## Benefits
 
