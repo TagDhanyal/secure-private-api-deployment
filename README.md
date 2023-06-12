@@ -38,7 +38,8 @@ To ensure the successful deployment and functionality of the Secure Private API,
 3. **Initiate Deployment**: Deploy the EC2 instance stack by executing the following command:
 
    ```bash
-   cdk deploy api-consumer
+   cdk deploy api_trigger
+   
 Send API Requests: After the deployment is complete, use the curl command to send a GET request to the API. For example:
     curl -X GET https://p35nrnhb3m.execute-api.us-east-1.amazonaws.com/tagdhanyal/secure/hello
     
