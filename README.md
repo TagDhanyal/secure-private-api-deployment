@@ -31,7 +31,7 @@ To deploy the Secure Private API, follow these steps:
 
 To ensure the successful deployment and functionality of the Secure Private API, follow these testing steps:
 
-1. **Retrieve URLs**: The necessary URLs can be found in the Outputs section of the `secure-private-api` stack.
+1. **Retrieve URLs**: The necessary URLs can be found in the Outputs section of the `Private_secured_api` stack.
 
 2. **Deploy EC2 Instance**: To test the solution within the same VPC, utilize the provided template to deploy an EC2 instance. This instance will be deployed in the same VPC and security group as the API Gateway, ensuring seamless testing. You can log in to the instance using Systems Manager or create your own instance.
 
