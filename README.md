@@ -27,12 +27,45 @@ To deploy the Secure Private API, follow these steps:
 5. Deploy the infrastructure stack using AWS CDK: `cdk bootstrap, cdk ls, cdk deploy`
 6. After successful deployment, the API endpoint URL will be provided as an output. Use this URL to access the secure private API within the VPC.
 
+# Testing the Solution
+
+To ensure the successful deployment and functionality of the Secure Private API, follow these testing steps:
+
+1. **Retrieve URLs**: The necessary URLs can be found in the Outputs section of the `secure-private-api` stack.
+
+2. **Deploy EC2 Instance**: To test the solution within the same VPC, utilize the provided template to deploy an EC2 instance. This instance will be deployed in the same VPC and security group as the API Gateway, ensuring seamless testing. You can log in to the instance using Systems Manager or create your own instance.
+
+3. **Initiate Deployment**: Deploy the EC2 instance stack by executing the following command:
+
+   ```bash
+   cdk deploy api-consumer
+Send API Requests: After the deployment is complete, use the curl command to send a GET request to the API. For example:
+    curl -X GET https://p35nrnhb3m.execute-api.us-east-1.amazonaws.com/miztiik/secure/greeter
+    
+Verify Response: The expected output should resemble the following:
+    {"message": "Hi Dhanyal World, Hello from Lambda running at X.XXX.XXX.XXX"}
+    
+Check Access Restrictions: To test the secure configuration of the SecureApiUrl, try accessing it from your browser, Postman tool, or curl. An error message should be displayed, indicating restricted access. For instance:
+    $ curl https://r56cvnhb5m.execute-api.us-east-1.amazonaws.com/tagdhanyal/secure/hello
+    curl: (6) Could not resolve host: r56cvnhb5m.execute-api.us-east-1.amazonaws.com
+    
+Verify VPC DNS Resolution: To confirm the successful resolution of SecureApiUrl within the VPC, perform an nslookup {SecureApiUrl_Domain} in the EC2 instance. This should yield a successful response from the VPC DNS Server. For instance:
+    $ nslookup p35nrnhb3m.execute-api.us-east-1.amazonaws.com
+    Server:         10.10.0.2
+    Address:        10.10.0.2#53
+
+    Non-authoritative answer:
+    r56cvnhb5m.execute-api.us-east-1.amazonaws.com  canonical name = execute-api.us-east-1.amazonaws.com.
+    Name:   execute-api.us-east-1.amazonaws.com
+    Address: 10.10.2.13
+    Name:   execute-api.us-east-1.amazonaws.com
+    Address: 10.10.3.160
+
 ## Cleanup
 
 To clean up the resources created by the Secure Private API Deployment, use the following command:
 
     cdk destroy
-
 
 
 ## Benefits
